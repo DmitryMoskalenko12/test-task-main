@@ -309,4 +309,39 @@ body {
   background: #232f3e;
   padding: 12px 10px;
 }
-
+.sub-header {
+  display: flex;
+  padding: 10px;
+  background: #37475A;
+}
+.right {
+  text-align: right;
+}
+.principal_bg {
+  background-image: url("data:image/png;base64,");
+}
+.img-principal {
+  max-width: 300px;
+  margin: 0px auto;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+#timerr {
+  color: #d91627;
+}
+.flag {
+  margin: 0;
+  padding: 0;
+}
+.estamos {
+  text-align: center;
+}
+.btn-success {
+  background-color: #ed9220;
+  border-color: #ed9220
+}
+.one-euro {
+  color: red;
+  font-weight: bold;
+}
