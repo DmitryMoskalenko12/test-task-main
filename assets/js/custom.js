@@ -1,4 +1,5 @@
-const button = document.querySelector('.submit');
+
+const form = document.querySelector('.comments');
 const comment = document.querySelector('.comment__user');
 const lastModalOk = document.querySelector('#p_modal_button3');
 const getData = document.querySelector('#content1');
@@ -18,6 +19,7 @@ const comments = [
   {id: 'comment6', srcAvatar: './assets/image/10.jpg', alt: "You will see your avatar", name: 'Heloísa', comment: 'Que bom! Eu nunca ganhei nada!', srcLikes: './assets/image/like.png', likesCount: 23, time: '3 hora antes'},
   {id: 'comment7', srcAvatar: './assets/image/9.jpg', alt: "You will see your avatar", name: 'Gustavo', comment: 'No início eu achava que era uma brincadeira, mas em fim eu ganhei minha Galaxy S10.Já falei para os meus amigos, assim eles poderiam ganhar também.', srcLikes: './assets/image/like.png', likesCount: 30, time: '4 hora antes'}
 ]
+
 const boxes = [
   {id: 0},
   {id: 1},
@@ -32,6 +34,7 @@ const boxes = [
   {id: 10},
   {id: 11}
 ]
+
 boxes.map(({id}) => {
   bigWrapForBoxes.insertAdjacentHTML('afterbegin', `
   <div id=${id} class="try temblor">
@@ -50,96 +53,63 @@ boxes.map(({id}) => {
 comments.map(({id, srcAvatar, srcLikes, alt, name, comment, likesCount, time}) => {
  blockComments.insertAdjacentHTML('beforeend', `<div class="comments" id="${id}" style="display:block">
  <div class="profile">
-   <img src=${srcAvatar} alt=${alt}>
+   <img width="60" height="60" src=${srcAvatar} alt=${alt}>
  </div>
  <div class="comment-content">
-   <p class="name">
-     <span style="vertical-align: inherit;">${name}</span>
-   </p>
-   <p>
-     <span style="vertical-align: inherit;">${comment}</span>    
-   </p>
+   <p class="name">${name}</p>
+   <p> ${comment}</p>
  </div>
  <div class="clr"></div>
  <div class="comment-status">
-     <span style="vertical-align: inherit;">Curte·comente</span>
-     <img src=${srcLikes} alt=" You will see likes" width="15px" height="15px">
-       <span style="vertical-align: inherit;">${likesCount}</span>
+     Curte·comente
+     <img src=${srcLikes} alt=" You will see likes" width="15" height="15">
+     <span>${likesCount}</span>
+     <small>·</small>
      <small>
-       <span style="vertical-align: inherit;">·</span>
-     </small>
-     <small>
-       <u>
-         <span style="vertical-align: inherit;">${time}</span>
-       </u>
+       <u>${time}</u>
      </small>
  </div>
 </div>`)
 });
 
-button.addEventListener('click', () => {
- let id = Date.now();
- const imgUser = './assets/image/princ.png';
- const name = 'Anonimus';
- if(comment.value.length === 0) {
-  return;
- } else {
-
-  let wrapper = document.createElement('div');
-  wrapper.classList.add("comments");
-  wrapper.style.display = 'block';
-  wrapper.setAttribute('id', id);
-  wrapper.innerHTML = `
-  <div class="profile">
-    <img width = '30px' height = '30px' src="${imgUser}"/> </div>
-  <div class="comment-content">
-    <p class="name">
-      <font style="vertical-align: inherit;">
-        <font style="vertical-align: inherit;">${name}</font>
-      </font>
-    </p>
-    <p>
-      <font style="vertical-align: inherit;">
-        <font style="vertical-align: inherit;">${comment.value}</font>
-      </font>
-    </p>
-  </div>
-  <div class="clr"></div>
-  <div class="comment-status">
-    <span>
-      <font style="vertical-align: inherit;">
-        <font style="vertical-align: inherit;">Curte·comente</font>
-      </font>
-      <img src="./assets/image/3.jpg" width="15px" height="15px">
-      <font style="vertical-align: inherit;">
-        <font style="vertical-align: inherit;">29</font>
-      </font>
-    </span>
-    <font style="vertical-align: inherit;">
-      <small>
-        <font style="vertical-align: inherit;">·</font>
-      </small>
-
-
-      <small>
-        <u>
-          <font style="vertical-align: inherit;">4 minutos antes</font>
-        </u>
-      </small>
-    </font>
-    <small>
-      <font style="vertical-align: inherit;"></font>
-      <u>
-        <font style="vertical-align: inherit;"></font>
-      </u>
-    </small>
-  </div>
-`
-  document.querySelector('.set-comment').after(wrapper)
-  comment.value = '';
- }
-})
 const result = {};
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  let id = Date.now();
+  const imgUser = './assets/image/princ.png';
+  const name = 'Anonimus';
+  if(comment.value.length === 0) {
+   return;
+  } else {
+ 
+   let wrapper = document.createElement('div');
+   wrapper.classList.add("comments");
+   wrapper.style.display = 'block';
+   wrapper.setAttribute('id', id);
+   wrapper.innerHTML = `
+   <div class="profile">
+     <img width = "30" height = "30" src="${imgUser}"/> </div>
+   <div class="comment-content">
+     <p class="name">${name}</p>
+     <p>${comment.value}</p>
+   </div>
+   <div class="clr"></div>
+   <div class="comment-status">
+     Curte·comente
+     <img src="./assets/image/like.png" width="15" height="15">
+     <span>0</span>
+     <small>·</small>
+     <small>
+       <u>0 minutos antes</u>
+     </small>
+   </div>
+   `
+   document.querySelector('.set-comment').after(wrapper)
+   comment.value = '';
+  }
+})
 
 getData.addEventListener('click', (e) => {
   if (e.target.classList.contains('find__answer')) {
@@ -156,6 +126,7 @@ getData.addEventListener('click', (e) => {
 
   lastModalOk.addEventListener('click', (e) => {
     e.preventDefault();
+    localStorage.setItem(`user${Date.now()}`, JSON.stringify(result));
     console.log(result)
   });
 

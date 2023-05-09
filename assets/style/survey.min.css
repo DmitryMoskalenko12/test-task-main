@@ -63,3 +63,11 @@ p.question {
   color: #fff;
   box-shadow: 0 1px 4px 0 #000;
 }
+
+.submit {
+  color: #fff;
+  border-radius: 5px;
+  background-color: #ed9220;
+  border: 2px solid #f0f0f0;
+  outline: 2px solid #f0f0f0;
+}

@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -20,6 +21,7 @@ body {
   z-index: 99;
   background-color: #dadada;
 }
+
 .parpadea {
   animation-name: parpadeo;
   animation-duration: 3s;
@@ -30,18 +32,22 @@ body {
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
 }
+
 .parpadea1only {
   animation-iteration-count: forwards;
   -webkit-animation-iteration-count: forwards;
 }
+
 .parpadea2only {
   animation-iteration-count: 2;
   -webkit-animation-iteration-count: 2;
 }
+
 .parpadea3only {
   animation-iteration-count: 3;
   -webkit-animation-iteration-count: 3;
 }
+
 @-moz-keyframes parpadeo {
   0% {
     opacity: 1;
@@ -53,6 +59,7 @@ body {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes parpadeo {
   0% {
     opacity: 1;
@@ -64,6 +71,7 @@ body {
     opacity: 1;
   }
 }
+
 @keyframes parpadeo {
   0% {
     opacity: 1;
@@ -75,6 +83,7 @@ body {
     opacity: 1;
   }
 }
+
 .ladea {
   animation-name: ladea;
   animation-duration: 2s;
@@ -84,6 +93,7 @@ body {
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
 }
+
 @keyframes ladea {
   0% {
     transform: rotateY(0);
@@ -111,12 +121,14 @@ body {
     transform: rotateY(0);
   }
 }
+
 .temblor:hover {
   animation: temblor 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
+
 @keyframes temblor {
   10%,
   90% {
@@ -136,10 +148,12 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+
 .temblor_inf {
   animation: temblor_inf 2s;
   animation-iteration-count: infinite;
 }
+
 @keyframes temblor_inf {
   0% {
     transform: translate(1px, 1px) rotate(0);
@@ -175,13 +189,16 @@ body {
     transform: translate(1px, -2px) rotate(-1deg);
   }
 }
+
 .p_modal img {
   max-width: 100%;
   max-height: 20vh;
 }
+
 .p_modal {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .p_modal h2 {
   color: #575757;
   font-size: 25px;
@@ -193,6 +210,7 @@ body {
   padding: 0;
   display: block;
 }
+
 .p_modal p {
   color: #797979;
   font-size: 15px;
@@ -205,6 +223,7 @@ body {
   padding: 0;
   line-height: normal;
 }
+
 .p_modal_button {
   display: inline-block;
   box-shadow: rgba(140, 212, 245, 0.8) 0 0 2px,
@@ -220,15 +239,18 @@ body {
   margin: 16px 5px 0 5px;
   cursor: pointer;
 }
+
 .checkmark {
   display: none;
 }
+
 .checkmark.draw:after {
   animation-duration: 0.8s;
   animation-timing-function: ease;
   animation-name: checkmark;
   transform: scaleX(-1) rotate(135deg);
 }
+
 .checkmark:after {
   opacity: 1;
   height: 3.5em;
@@ -241,6 +263,7 @@ body {
   top: 3.5em;
   position: absolute;
 }
+
 @keyframes checkmark {
   0% {
     height: 0;
@@ -263,6 +286,7 @@ body {
     opacity: 1;
   }
 }
+
 .circle-loader {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-left-color: #5cb85c;
@@ -274,12 +298,14 @@ body {
   width: 7em;
   height: 7em;
 }
+
 .load-complete {
   -webkit-animation: none;
   animation: none;
   border-color: #5cb85c;
   transition: border 0.5s ease-out;
 }
+
 @keyframes loader-spin {
   0% {
     transform: rotate(0);
@@ -288,38 +314,48 @@ body {
     transform: rotate(360deg);
   }
 }
+
 .confeti {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
 }
+
 [class|="confetti"] {
   position: absolute;
 }
+
 .red {
   background-color: #e94a3f;
 }
+
 .yellow {
   background-color: #faa040;
 }
+
 .blue {
   background-color: #5fc9f5;
 }
+
 .top-header {
   background: #232f3e;
   padding: 12px 10px;
 }
+
 .sub-header {
   display: flex;
   padding: 10px;
   background: #37475A;
 }
+
 .right {
   text-align: right;
 }
+
 .principal_bg {
   background-image: url("data:image/png;base64,");
 }
+
 .img-principal {
   max-width: 300px;
   margin: 0px auto;
@@ -327,21 +363,70 @@ body {
   width: 100%;
   cursor: pointer;
 }
+
 #timerr {
   color: #d91627;
 }
-.flag {
-  margin: 0;
-  padding: 0;
-}
+
 .estamos {
   text-align: center;
 }
+
 .btn-success {
   background-color: #ed9220;
   border-color: #ed9220
 }
+
 .one-euro {
   color: red;
   font-weight: bold;
+}
+
+.mais {
+  margin: 0;
+  padding: 0;
+  float: left;
+  display: inline;
+  width: 50%;
+  color:#3b5998;
+  cursor: pointer;
+}
+
+.float {
+  clear: both;
+}
+
+.paragraf {
+  font-size: 12px;
+  color: #bcbcbc;
+}
+
+.wrap__hoge {
+  margin: 0;
+}
+
+.parabens {
+  font-weight: bold;
+  margin: 0;
+}
+
+.img__float {
+  float: right;
+}
+
+.menu__top {
+  margin-top: 3px;
+}
+
+.comment__user {
+  border: none;
+  border-radius: 5px;
+}
+
+.todas {
+  margin-top: 0;
+}
+
+.center {
+  margin: 0 auto;
 }
